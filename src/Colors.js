@@ -1,9 +1,7 @@
 import React from 'react';
-import { NavLink, useHistory, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Colors = ({ colors }) => {
-  const history = useHistory();
-  const { color } = useParams();
   return (
     <>
       <div>
@@ -13,7 +11,9 @@ const Colors = ({ colors }) => {
         <ul>
           {colors.map((color) => (
             <li key={color.name}>
-              <NavLink to={`/colors/${color.name}`}>{color.name}</NavLink>
+              <NavLink colors={colors} to={`/colors/${color.name}`}>
+                {color.name}
+              </NavLink>
             </li>
           ))}
         </ul>

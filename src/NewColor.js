@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 
 const NewColor = () => {
   const [color, setColor] = useState('');
-  const [colors, setColors] = useState([]);
-  console.log(colors);
+  const [colors, setColors] = useState([{ name: color }]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setColors((colors) => [...colors, color]);
+    setColors((colors) => [...colors, { name: color }]);
     setColor('');
+
+    console.log(colors);
   };
 
   const handleChange = (e) => {
@@ -32,10 +33,11 @@ const NewColor = () => {
         </form>
       </div>
       <div>
+        <Link to="/colors">Go Back</Link>
         <ul>
           {colors.map((color) => (
-            <li key={color}>
-              <Link to={`/colors/${color}`}>{color}</Link>
+            <li key={color.name}>
+              <Link to={`/colors/${color.name}`}>{color.name}</Link>
             </li>
           ))}
         </ul>

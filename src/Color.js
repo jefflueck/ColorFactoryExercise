@@ -1,12 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Color = ({ color }) => {
-  const colorDetails = color.find((c) => c.name === color);
+  console.log(color);
   return (
-    <div>
-      <h1>{colorDetails.name}</h1>
-      <p>{colorDetails.hex}</p>
-    </div>
+    <>
+      <div>
+        <h1>Color</h1>
+        {color && <h2>{color.name}</h2>}
+      </div>
+      <NavLink to="/colors/new">Go Back</NavLink>
+    </>
   );
 };
 
