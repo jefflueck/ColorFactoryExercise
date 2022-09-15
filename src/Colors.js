@@ -13,14 +13,7 @@ const Colors = ({ colors }) => {
         <ul>
           {colors.map((color) => (
             <li key={color.name}>
-              <NavLink
-                to={{
-                  pathname: `/colors/${color.name}`,
-                  colorProp: { color: color },
-                }}
-              >
-                {color.name}
-              </NavLink>
+              <NavLink to={`/colors/${color.name}`}>{color.name}</NavLink>
             </li>
           ))}
         </ul>
